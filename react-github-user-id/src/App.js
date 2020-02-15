@@ -29,26 +29,30 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
-          <h1>Welcome to my GitHub Account</h1>
+          <h1 className="github">Welcome to my GitHub Account</h1>
         </header>
-        <h4>Login: {this.state.userData.login}</h4>
-        <h2>Name: {this.state.userData.name}</h2>
-        <img className="image"
+
+        <img
+          className="image"
           width="300px"
           height="300px"
           src={this.state.userData.avatar_url}
           alt="avatar"
         />
+        <a className="url" href={this.state.userData.html_url}>
+        <h4 className="url">Login: {this.state.userData.login}</h4>
+        <h2 className="url">Name: {this.state.userData.name}</h2>
+         </a>
 
         <div>
-          <p>My Followers</p>
+          <p className="followersHeader">Followers</p>
           <div className="followers">
             {this.state.followersData.map(follower => {
               return (
                 <div>
                   <a className="url" href={follower.html_url}>
-                    
-                    <img className="image"
+                    <img
+                      className="image"
                       width="180px"
                       height="180px"
                       src={follower.avatar_url}

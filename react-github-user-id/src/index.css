@@ -5,7 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:lightgray;
+  background-color: lightgray;
+  /*background-image: url("https://images.wallpaperscraft.com/image/board_black_line_texture_background_wood_55220_2560x1024.jpg");
+  background-size: cover;*/
 }
 
 code {
