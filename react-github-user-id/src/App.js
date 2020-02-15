@@ -19,7 +19,9 @@ class App extends React.Component {
 
     axios
       .get("https://api.github.com/users/remoo1901/followers")
-      .then(x => this.setState({ followersData: x.data }))
+      .then(x => {
+        this.setState({ followersData: x.data });
+      })
       .catch(err => console.log(err));
   }
 
@@ -31,28 +33,33 @@ class App extends React.Component {
         </header>
         <h4>Login: {this.state.userData.login}</h4>
         <h2>Name: {this.state.userData.name}</h2>
-        <img
-          width="200px"
-          height="200px"
+        <img className="image"
+          width="300px"
+          height="300px"
           src={this.state.userData.avatar_url}
           alt="avatar"
         />
 
-        <h1>My Followers</h1>
         <div>
-          {this.state.followersData.map(follower => {
-            return (
-              <div>
-                <p>Login: {follower.login}</p>
-                <img
-                  width="200px"
-                  height="200px"
-                  src={follower.avatar_url}
-                  alt={follower.login}
-                />
-              </div>
-            );
-          })}
+          <p>My Followers</p>
+          <div className="followers">
+            {this.state.followersData.map(follower => {
+              return (
+                <div>
+                  <a className="url" href={follower.html_url}>
+                    
+                    <img className="image"
+                      width="180px"
+                      height="180px"
+                      src={follower.avatar_url}
+                      alt={follower.login}
+                    />
+                    <p>{follower.login}</p>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );
